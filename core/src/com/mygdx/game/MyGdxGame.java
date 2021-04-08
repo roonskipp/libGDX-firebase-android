@@ -12,6 +12,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
 	FireBaseInterface _FBIC;
+	DataHolderClass dataHolder;
 
 
 	public MyGdxGame(FireBaseInterface FBIC)
@@ -23,9 +24,11 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+		dataHolder = new DataHolderClass();
+		System.out.println("sup");
 		_FBIC.SomeFunction();
 		_FBIC.FirstFireBaseTest();
-		_FBIC.SetOnValueChangedListener();
+		_FBIC.SetOnValueChangedListener(dataHolder);
 		_FBIC.SetValueInDb("message", "this is new text");
 		_FBIC.SetValueInDb("message2", "this is new text");
 
@@ -38,7 +41,6 @@ public class MyGdxGame extends ApplicationAdapter {
 		batch.begin();
 		batch.draw(img, 0, 0);
 		batch.end();
-
 
 	}
 	

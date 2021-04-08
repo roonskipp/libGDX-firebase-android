@@ -2,7 +2,6 @@ package com.mygdx.game;
 
 public class CoreInterFaceClass implements FireBaseInterface{
 
-
     @Override
     public void SomeFunction() {
         System.out.println("Wubbbadubbbbba");
@@ -14,10 +13,16 @@ public class CoreInterFaceClass implements FireBaseInterface{
     }
 
     @Override
-    public void SetOnValueChangedListener() {
+    public void SetOnValueChangedListener(DataHolderClass dataholder) {
 
     }
 
+    /*
+    @Override
+    public void SetOnValueChangedListener() {
+
+    }
+*/
     @Override
     public void SetValueInDb(String target, String value) {
 

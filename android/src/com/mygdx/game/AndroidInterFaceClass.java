@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 import static android.content.ContentValues.TAG;
 
 public class AndroidInterFaceClass implements FireBaseInterface {
@@ -23,6 +24,7 @@ public class AndroidInterFaceClass implements FireBaseInterface {
     @Override
     public void SomeFunction() {
         System.out.println("Just some function");
+
     }
 
     @Override
@@ -35,8 +37,9 @@ public class AndroidInterFaceClass implements FireBaseInterface {
         }
     }
 
+
     @Override
-    public void SetOnValueChangedListener() {
+    public void SetOnValueChangedListener(final DataHolderClass dataholder) {
         myRef.addValueEventListener(new ValueEventListener() {
             // Read from the database
 
@@ -46,6 +49,8 @@ public class AndroidInterFaceClass implements FireBaseInterface {
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d(TAG, "Value is: " + value);
+                dataholder.someValue = value;
+                dataholder.PrintSomeValue();
             }
 
             @Override
